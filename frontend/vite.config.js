@@ -11,7 +11,7 @@ export default defineConfig({
   base: "./",
   server: {
     proxy: {
-      "/api": "https://ai-interview-chat-app.onrender.com",
+      "/api": "http://localhost:8000",
     },
   },
 });
