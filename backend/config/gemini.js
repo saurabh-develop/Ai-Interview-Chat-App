@@ -3,13 +3,11 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const credentialsJson = JSON.parse(
-  process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON
-);
+const credentials = JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON);
 
 export const client = new VertexAI({
-  credentials: credentialsJson,
-  project: credentialsJson.project_id,
+  credentials,
+  project: credentials.project_id,
 });
 
 /**
