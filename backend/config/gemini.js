@@ -9,7 +9,7 @@ const credentialsJson = JSON.parse(
 
 export const client = new VertexAI({
   credentials: credentialsJson,
-  projectId: credentialsJson.project_id, 
+  project: credentialsJson.project_id,
 });
 
 /**
