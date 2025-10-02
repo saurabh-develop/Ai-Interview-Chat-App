@@ -3,9 +3,13 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const vertex_ai = new VertexAI({
-  project: process.env.GOOGLE_CLOUD_PROJECT_ID,
-  location: "us-central1", 
+const credentialsJson = JSON.parse(
+  process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON
+);
+
+export const client = new VertexAI({
+  credentials: credentialsJson,
+  projectId: credentialsJson.project_id,
 });
 
 /**
