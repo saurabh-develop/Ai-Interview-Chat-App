@@ -9,4 +9,9 @@ export default defineConfig({
     outDir: "dist",
   },
   base: "./",
+  server: {
+    proxy: {
+      "/api": "https://ai-interview-chat-app.onrender.com",
+    },
+  },
 });
