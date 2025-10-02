@@ -9,7 +9,7 @@ const credentialsJson = JSON.parse(
 
 export const client = new VertexAI({
   credentials: credentialsJson,
-  projectId: credentialsJson.project_id,
+  projectId: credentialsJson.project_id, 
 });
 
 /**
@@ -24,7 +24,7 @@ export const generateContent = async (
   modelName = "gemini-2.5-flash"
 ) => {
   try {
-    const generativeModel = vertex_ai.getGenerativeModel({ model: modelName });
+    const generativeModel = client.getGenerativeModel({ model: modelName });
 
     const request = {
       contents: [{ role: "user", parts: [{ text: prompt }] }],
