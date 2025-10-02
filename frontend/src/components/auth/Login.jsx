@@ -8,13 +8,16 @@ const Login = ({ username, setUsername }) => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  const API_AUTH_URL =
+    import.meta.env.VITE_API_AUTH_URL || "http://localhost:8000/auth";
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:8000/auth/login", {
+      const response = await fetch(`${API_AUTH_URL}/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),

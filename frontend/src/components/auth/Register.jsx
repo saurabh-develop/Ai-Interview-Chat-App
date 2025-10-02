@@ -10,6 +10,9 @@ const Registration = ({ username, setUsername }) => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  const API_AUTH_URL =
+    import.meta.env.VITE_API_AUTH_URL || "http://localhost:8000/auth";
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -22,7 +25,7 @@ const Registration = ({ username, setUsername }) => {
     }
 
     try {
-      const response = await fetch("http://localhost:8000/auth/register", {
+      const response = await fetch(`${API_AUTH_URL}/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, username, password, role }),
